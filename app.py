@@ -16,7 +16,8 @@ class UserInput(BaseModel):
 
 @app.post("/analyze")
 def analyze_entry(data: UserInput):
-    classifier = pipeline(task="text-classification", model="SamLowe/roberta-base-go_emotions")
+ classifier = pipeline("text-classification", model="bhadresh-savani/distilbert-base-uncased-emotion")
+
     result = classifier(data.text)
     emotion = result[0]['label']
 
